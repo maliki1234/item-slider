@@ -1,0 +1,146 @@
+$mediaMaxWidth: 1260px;
+$mediaBp1Width: 760px;
+$phone: 480px;
+$mediaLargePhones: 640px;
+
+    
+    
+    
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: 2s ease;
+}
+     
+html 
+   { font-size: 15px;
+    // +media($mediaMaxWidth)
+}
+
+
+@mixin media-query($width) {
+    @media screen and (max-width: $width){
+        @content;
+    }
+}
+        
+
+.heading
+    {text-transform: uppercase;
+    margin: 30px;
+    text-align: center;
+    @include media-query($mediaBp1Width){
+        background: red;
+
+    }
+}
+
+
+.card-holder
+{
+    overflow: hidden;
+    .card-wrapper{
+        display: flex ;
+        flex-direction: row;
+        .card{
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            max-width: 235px;
+            min-width: 235px;
+            background: #46353541;
+            margin: 0 10px;
+            @include media-query($mediaLargePhones){
+                max-width: 210px;
+                margin: 0 4px;
+                min-width: 210px;
+            }
+            @include media-query($phone){
+               max-width: 100%;
+               min-width: 100%;
+                // margin: 0 5px;
+                margin: 2px;
+                padding: 0 10px;
+            }
+        .background-img{
+                width: 100%;
+                object-fit: cover;
+                clip-path: polygon(0 0, 100% 0, 100% 50%, 0 65%);
+            }
+            .profile-img{
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+                border: 4px solid #fff ;
+                align-self: center;
+                margin-top: -180px;
+                border-radius: 50% ; 
+                z-index: 1;
+                @include media-query($phone){
+                    margin-top: -350px;
+                }
+            }
+            .profile-name{
+                margin: 10px 0;
+                text-transform: uppercase ;
+                text-align: center;
+                @include media-query($phone){
+                    margin: 30px 0;
+                }
+            }
+
+            .proffesional{
+                color: #7432329c;
+                font-size: 23px;
+                margin-left: 5px;
+                @include media-query($phone){
+                    font-size: 20px;
+                    margin-left: 20px;
+                }
+            }
+            .description{
+                font-style: italic;
+                margin: 0 10px;
+                text-align: justify;
+                @include media-query($phone){
+                    margin: 25px  30px 0 20px;
+                    font-size: 16px;
+                }
+            }
+            .btn{
+                padding: 3px;
+                font-size: 10px;
+                align-self: center;
+                margin: 20px 0;
+                border-radius: 20%;
+                box-shadow: 2px 2px 7px;
+            }
+            }
+   }
+
+}
+.arrow{
+    position: absolute;
+    width: 40px;
+    background: #140101b6;
+    top: 52%;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 20;
+    cursor: pointer;
+    display: none;
+}
+.arrow:hover{
+    background: #1f6dbb
+}
+
+
+.arrow-left{ 
+    left: 10px;
+}
+    
+.arrow-right{
+    right: 10px;
+}
+
